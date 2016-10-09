@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="app">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta http-equiv="content-language" content="pt-br" />
+      <title>InCasa</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+   </head>
+ 
+   <body>
+      <ul class="nav nav-tabs">
+         <li ng-class="{active: activetab == '/'}"><a href="#/home">Home</a></li>
+         <li ng-class="{active: activetab == '/sobre'}"><a href="#/sobre">Sobre</a></li>
+         <li ng-class="{active: activetab == '/login'}"><a href="#/login">Login</a></li>
+      </ul>
+ 
+      <div ng-view></div>
+ 
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+ 
+      <script src="app/app.js"></script>
+      <script src="app/controllers/HomeCtrl.js"></script>
+      <script src="app/controllers/SobreCtrl.js"></script>
+      <script src="app/controllers/LoginCtrl.js"></script>
+   </body>
+</html>
