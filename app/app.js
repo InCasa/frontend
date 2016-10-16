@@ -22,6 +22,12 @@ app.config(function($routeProvider, $locationProvider)
       templateUrl : 'app/views/login.html',
       controller  : 'LoginCtrl',
    })
+   
+   //rota cadastro
+   .when('/cadastro', {
+      templateUrl : 'app/views/cadastro.html',
+      controller  : 'CadastroCtrl',
+   })
  
     //rota else
    .otherwise ({ redirectTo: '/' });

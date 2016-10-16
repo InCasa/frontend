@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'UA Squared';
+	src: url('../fonts/UASquared.eot');
+	src: url('../fonts/UASquared.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/UASquared.woff') format('woff'),
+		url('../fonts/UASquared.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+.menu {
+    background-color: #1bc0f3;
+}
+
+a {
+    font-family: 'UA Squared';
+    color: white;
+    font-size: 150%;
+}

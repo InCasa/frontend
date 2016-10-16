@@ -2,48 +2,35 @@
 <html ng-app="app">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="content-language" content="pt-br" />
-    <title>InCasa</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link href="img/ic_launcher.ico" rel="icon" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<title>InCasa</title>
+	<link rel="stylesheet" href="css/foundation.css">
+	<link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-    <div class="row">
-        <div class="large-12 columns">
-            <h1>InCasa</h1>
-        </div>
-    </div>
+	<ul class="menu">
+        <li><a ng-class="{active: activetab == '/'}" href="#/home">InCasa</a></li>
+		<li><a ng-class="{active: activetab == '/'}" href="#/home">Home</a></li>
+		<li><a ng-class="{active: activetab == '/sobre'}" href="#/sobre">Sobre</a></li>
+		<li><a ng-class="{active: activetab == '/login'}" href="#/login">Login</a></li>	
+        <li><a ng-class="{active: activetab == '/cadastro'}" href="#/cadastro">Cadastro</a></li>	
+	</ul>	
 
-    <div class="row">
-        <div class="large-12 columns">
+	<div ng-view></div>
 
-            <div class="row">
-                <div class="large-4 medium-4 columns">
-                    <p ng-class="{active: activetab == '/'}"><a href="#/home">Home</a></p>
-                </div>
-                <div class="large-4 medium-4 columns">
-                    <p ng-class="{active: activetab == '/sobre'}"><a href="#/sobre">Sobre</a></p>
-                </div>
-                <div class="large-4 medium-4 columns">
-                    <p ng-class="{active: activetab == '/login'}"><a href="#/login">Login</a></p>
-                </div>
-            </div>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-route.min.js"></script>
 
-        </div>
-    </div>
-
-    <div ng-view></div>
-
-    <script src="js/angular.js"></script>
-    <script src="js/angular-route.min.js"></script>
-
-    <script src="app/app.js"></script>
-    <script src="app/controllers/HomeCtrl.js"></script>
-    <script src="app/controllers/SobreCtrl.js"></script>
-    <script src="app/controllers/LoginCtrl.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/controllers/HomeCtrl.js"></script>
+	<script src="app/controllers/SobreCtrl.js"></script>
+	<script src="app/controllers/LoginCtrl.js"></script>
+    <script src="app/controllers/CadastroCtrl.js"></script>
 </body>
 
 </html>
