@@ -7,17 +7,17 @@
 			<div class="row">
 				<div class="medium-6 columns">
 					<label>Login
-                        <input type="text" placeholder="login">
+                        <input type="text" placeholder="login" ng-model="vm.login">
                     </label>
 				</div>
 				<div class="medium-6 columns">
 					<label>Senha
-                        <input type="password" placeholder="senha">
+                        <input type="password" placeholder="senha" ng-model="vm.senha">
                     </label>
 				</div>
 			</div>
 
-			<button type="button" class="success button">Login</button>
+			<button type="button" class="success button" ng-click="vm.submit()">Login</button>
 			<a class="alert button" href="#/home">Cancelar</a>
             <a class="warning button" href="#/cadastro">Cadastre-se</a>
 
