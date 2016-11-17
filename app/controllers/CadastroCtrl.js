@@ -1,14 +1,33 @@
-CadastroController.$inject = ['$rootScope', '$location', 'ApiService'];
+CadastroController.$inject = ['$rootScope', '$location', 'ApiServiceUser'];
 
-function CadastroController($rootScope, $location, ApiService) {
+function CadastroController($rootScope, $location, ApiServiceUser) {
 	var vm = this;
 	$rootScope.activetab = $location.path();
 
-	vm.submit = function () {
-		console.log("Nome: " + vm.nome);
-		console.log("Login: " + vm.login);
-		console.log("Senha: " + vm.senha);
-		console.log("Confirmar Senha: " + vm.csenha);
+	vm.submit = function () {	
+
+		if (vm.nome && vm.login && vm.senha && vm.csenha) {
+			if (vm.senha == vm.csenha) {
+				var user = { nome: vm.nome, login: vm.login, senha: vm.senha };
+
+				var login = ApiServiceUser.cadastro(user)
+					.then(function (cadastro) {
+						console.log(cadastro);
+						console.log("cadastrado!");
+					})
+					.catch(function () {
+						console.log('Erro ao buscar o user');
+					})
+
+			} else {
+				alert("As senha devem ser iguais!");
+				return;
+			}
+		} else {
+			alert("Preencha todos os campos!");
+			return;
+		}
+
 	}
 }
 
