@@ -11,11 +11,10 @@ function LoginController($rootScope, $location, ApiServiceUser) {
 
 			var login = ApiServiceUser.login(user)
 				.then(function (login) {
-					console.log(login);
-					console.log("login");
+					window.location.href = "https://localhost/frontend/dashboard";
 				})
 				.catch(function () {
-					console.log('Erro ao buscar o user');
+					console.log('Erro ao buscar o usuario');
 				})
 
 		} else {

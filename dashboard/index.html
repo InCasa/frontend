@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+	<title>InCasa - Dashboard</title>
+	
+	<meta name=viewport content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#1bc0f3" />    
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-language" content="pt-br" />
+	
+	<link href="../img/ic_launcher.ico" rel="icon" />
+	<link rel="stylesheet" href="../css/foundation.css" />
+	<link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+
+	<ul class="menu">
+		<li><a ng-class="{active: activetab == '/'}" href="#/dashboard">InCasa</a></li>					
+	</ul>	
+
+	<div ui-view></div>
+	
+	<script src="app/app-bundle.js"></script>
+	
+</body>
+
+</html>
