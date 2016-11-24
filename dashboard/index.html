@@ -18,7 +18,11 @@
 <body>
 
 	<ul class="menu">
-		<li><a ng-class="{active: activetab == '/'}" href="#/dashboard">InCasa</a></li>					
+		<li><a ng-class="{active: activetab == '/'}" href="#/dashboard">InCasa</a></li>
+        <li><a ng-class="{active: activetab == '/'}" href="#/sensor">Sensor</a></li>
+        <li><a ng-class="{active: activetab == '/'}" href="#/rele">Rele</a></li>
+        <li><a ng-class="{active: activetab == '/'}" href="#/config">Configuração</a></li>
+        <li style="margin-left:1px;"><a>Logout</a></li>
 	</ul>	
 
 	<div ui-view></div>

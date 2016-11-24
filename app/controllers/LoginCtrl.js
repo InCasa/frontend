@@ -11,7 +11,9 @@ function LoginController($rootScope, $location, ApiServiceUser) {
 
 			var login = ApiServiceUser.login(user)
 				.then(function (login) {
-					window.location.href = "https://localhost/frontend/dashboard";
+                    sessionStorage.setItem('login', user.login);
+                    sessionStorage.setItem('senha', user.senha);                                                            
+					window.location.href = "https://localhost/frontend/dashboard/#/";
 				})
 				.catch(function () {
 					console.log('Erro ao buscar o usuario');

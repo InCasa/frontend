@@ -5,8 +5,8 @@ function RouteConfig($stateProvider, $urlRouterProvider)
        $urlRouterProvider.otherwise("/dashboard");
 	   
 	   $stateProvider
-		
-		//rota home
+       
+       //rota sensor
 	   .state('sensor', {
 		  url:'/sensor',
 		  templateUrl : 'app/views/sensor.html',
@@ -14,7 +14,7 @@ function RouteConfig($stateProvider, $urlRouterProvider)
 		  controllerAs: 'vmdash'
 	   })	
 	 
-	   //rota login
+	   //rota rele
 	   .state('rele', {
 		  url:'/rele',
 		  templateUrl : 'app/views/rele.html',
@@ -22,7 +22,7 @@ function RouteConfig($stateProvider, $urlRouterProvider)
 		  controllerAs: 'vmdash'
 	   })
 	   
-	   //rota cadastro
+	   //rota config
 	   .state('config', {
 		  url: '/config',
 		  templateUrl : 'app/views/config.html',
@@ -31,4 +31,5 @@ function RouteConfig($stateProvider, $urlRouterProvider)
 	   })
 	 
 	}
+
 	module.exports = RouteConfig;
