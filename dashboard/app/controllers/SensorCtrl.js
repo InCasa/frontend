@@ -6,19 +6,18 @@ function SensorController($rootScope, $location, ApiServiceTemperatura, ApiServi
 
 	var auth = ApiServiceAuth.auth()
 		.then(function (auth) {
-            console.log(auth);
-            
+                        
 			var temp = ApiServiceTemperatura.getTemperatura()
-				.then(function (getTemperatura) {
-					console.log(getTemperatura);
+				.then(function (getTemperatura) {			
+                    //Lógica json
 				})
-				.catch(function () {
-					console.log('Erro ao buscar a temperatura');
+				.catch(function () {			 		
+                    alert('Necessita estar logado!');
 				})
 
 		})
 		.catch(function () {
-			alert('Necessita estar logado!')
+			alert('Necessita estar logado!');
 			window.location.href = "https://localhost/frontend/login";
 		})
 

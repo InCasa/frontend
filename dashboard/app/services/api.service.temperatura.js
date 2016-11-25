@@ -6,9 +6,7 @@ function ApiServiceTemperatura($http) {
     
     function getTemperatura() {
         var login = localStorage.getItem("login");
-        var senha = localStorage.getItem("senha");
-        
-        console.log(login + " " + senha);
+        var senha = localStorage.getItem("senha");                
         
         var encodedString = btoa(login+':'+senha);
         

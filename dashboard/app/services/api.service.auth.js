@@ -11,10 +11,7 @@ function ApiServiceAuth($http) {
         if(login == null || senha == null) {
             login = "vazio";
             senha = "vazio";
-        }
-
-        console.log(login);
-        console.log(senha);
+        }        
 
         var encodedString = btoa(login+':'+senha);
                 
