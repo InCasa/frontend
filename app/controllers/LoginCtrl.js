@@ -10,13 +10,14 @@ function LoginController($rootScope, $location, ApiServiceUser) {
 			var user = { login: vm.login, senha: vm.senha };
 
 			var login = ApiServiceUser.login(user)
-				.then(function (login) {                                        
-                    console.log(login);                                                            
-					//window.location.href = "https://localhost/frontend/dashboard/#/";
+				.then(function (login) {
+                    localStorage.setItem("login", vm.login);
+                    localStorage.setItem("senha", vm.senha);
+					window.location.href = "https://localhost/frontend/dashboard/#/";
 				})
-				.catch(function () {
-                    console.log(login);
+				.catch(function () {                    
 					alert('Login ou senha incorretos');
+                    return;
 				})
 
 		} else {
