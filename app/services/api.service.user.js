@@ -14,7 +14,7 @@ function ApiServiceUser($http) {
     function login(user) {
         var encodedString = btoa(user.login+':'+user.senha);
         return $http.post('/backend/userLogin' , user, {
-            headers: {'Authorization': encodedString}
+            headers: {'Authorization': 'Basic '+encodedString}
         });
     }
 
