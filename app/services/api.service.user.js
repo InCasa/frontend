@@ -12,7 +12,10 @@ function ApiServiceUser($http) {
     }
 
     function login(user) {
-        return $http.post('/backend/userLogin' , user);
+        var encodedString = btoa(user.login+':'+user.senha);
+        return $http.post('/backend/userLogin' , user, {
+            headers: {'Authorization': encodedString}
+        });
     }
 
     return {
