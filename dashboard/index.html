@@ -2,33 +2,49 @@
 <html ng-app="app">
 
 <head>
-	<title>InCasa - Dashboard</title>
-	
-	<meta name=viewport content="width=device-width, initial-scale=1" />
-	<meta name="theme-color" content="#1bc0f3" />    
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="content-language" content="pt-br" />
-	
-	<link href="../img/ic_launcher.ico" rel="icon" />
-	<link rel="stylesheet" href="../css/foundation.css" />
-	<link rel="stylesheet" href="../css/app.css" />
+    <title>InCasa - Dashboard</title>
+
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1bc0f3" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="pt-br" />
+
+    <link href="../img/ic_launcher.ico" rel="icon" />
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link rel="stylesheet" href="../css/app.css" />
     <link rel="stylesheet" href="../css/styles.css" />
 </head>
 
 <body>
 
-	<ul class="menu">
-		<li><a ng-class="{active: activetab == '/'}" href="#/dashboard">InCasa</a></li>
+    <ul class="menu">
+        <li><a ng-class="{active: activetab == '/'}" href="#/dashboard">InCasa</a></li>
         <li><a ng-class="{active: activetab == '/'}" href="#/sensor">Sensor</a></li>
         <li><a ng-class="{active: activetab == '/'}" href="#/rele">Rele</a></li>
         <li><a ng-class="{active: activetab == '/'}" href="#/config">Configuração</a></li>
-        <li style="margin-left:1px;"><a>Logout</a></li>
-	</ul>	
+        <li style="margin-left:1px;"><a onClick="logout()">Logout</a></li>
+    </ul>
 
-	<div ui-view></div>
-	
-	<script src="app/app-bundle.js"></script>
-	
+    <div ui-view></div>
+
+    <script src="app/app-bundle.js"></script>
+
+    <script>        
+        function loadAuth() {
+            if(localStorage.getItem("login") == null || localStorage.getItem("senha") == null) {
+                alert('Necessita estar logado!');
+                window.location.href = "https://localhost/frontend/#/login";
+            }
+                
+        }
+        window.onload = loadAuth;
+             
+        function logout() {
+            localStorage.clear();
+            window.location.href = "https://localhost/frontend/#/login";
+        }
+    </script>
+
 </body>
 
 </html>

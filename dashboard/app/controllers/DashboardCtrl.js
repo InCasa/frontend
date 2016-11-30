@@ -1,6 +1,6 @@
-ReleController.$inject = ['$rootScope', '$location', 'ApiServiceAuth'];
+DashboardController.$inject = ['$rootScope', '$location', 'ApiServiceAuth'];
 
-function ReleController($rootScope, $location, ApiServiceAuth) {
+function DashboardController($rootScope, $location, ApiServiceAuth) {
 	$rootScope.activetab = $location.path();
 
 	var auth = ApiServiceAuth.auth()
@@ -12,7 +12,6 @@ function ReleController($rootScope, $location, ApiServiceAuth) {
 			window.location.href = "https://localhost/frontend/#/login";
 		})
 
-
 }
 
-module.exports = ReleController;
+module.exports = DashboardController;
