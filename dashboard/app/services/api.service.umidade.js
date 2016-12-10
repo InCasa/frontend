@@ -1,22 +1,22 @@
-module.exports = ApiServiceTemperatura;
+module.exports = ApiServiceUmidade;
 
-ApiServiceTemperatura.$inject = ['$http'];
+ApiServiceUmidade.$inject = ['$http'];
 
-function ApiServiceTemperatura($http) {        
+function ApiServiceUmidade($http) {        
     
-    function getTemperatura() {
+    function getUmidade() {
         var login = localStorage.getItem("login");
         var senha = localStorage.getItem("senha");                
         
         var encodedString = btoa(login+':'+senha);
         
-        return $http.get('/backend/temperaturaValor', {
+        return $http.get('/backend/umidadeValor', {
             headers: {'Authorization': 'Basic '+encodedString}
         });
     }
 
     return {
-        getTemperatura: getTemperatura    
+        getUmidade: getUmidade    
     };
 
 }

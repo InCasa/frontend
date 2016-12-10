@@ -24,6 +24,4 @@ function ApiServiceAuth($http) {
         auth: auth        
     };
 
-
-
 }

@@ -1331,14 +1331,14 @@ code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #0a0a0a;
-  background-color: #e6e6e6;
+  background-color: #1bc0f3;
   border: 1px solid #cacaca;
   padding: 0.125rem 0.3125rem 0.0625rem; }
 
 kbd {
   padding: 0.125rem 0.25rem 0;
   margin: 0;
-  background-color: #e6e6e6;
+  background-color: #1bc0f3;
   color: #0a0a0a;
   font-family: Consolas, "Liberation Mono", Courier, monospace; }
 
@@ -1627,7 +1627,7 @@ textarea::placeholder {
 input:disabled, input[readonly],
 textarea:disabled,
 textarea[readonly] {
-  background-color: #e6e6e6;
+  background-color: #1bc0f3;
   cursor: not-allowed; }
 
 [type='submit'],
@@ -1697,7 +1697,7 @@ label {
 .input-group-label {
   text-align: center;
   padding: 0 1rem;
-  background: #e6e6e6;
+  background: #1bc0f3;
   color: #0a0a0a;
   border: 1px solid #cacaca;
   white-space: nowrap;
@@ -1768,7 +1768,7 @@ select {
     select {
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIpJREFUeNrEkckNgDAMBBfRkEt0ObRBBdsGXUDgmQfK4XhH2m8czQAAy27R3tsw4Qfe2x8uOO6oYLb6GlOor3GF+swURAOmUJ+RwtEJs9WvTGEYxBXqI1MQAZhCfUQKRzDMVj+TwrAIV6jvSUEkYAr1LSkcyTBb/V+KYfX7xAeusq3sLDtGH3kEGACPWIflNZfhRQAAAABJRU5ErkJggg=="); } }
   select:disabled {
-    background-color: #e6e6e6;
+    background-color: #1bc0f3;
     cursor: not-allowed; }
   select::-ms-expand {
     display: none; }
@@ -1811,13 +1811,13 @@ select {
   font-size: 0.75rem;
   color: #2199e8;
   position: relative;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #1bc0f3;
   border-bottom: 0; }
   :last-child:not(.is-active) > .accordion-title {
     border-radius: 0 0 0 0;
-    border-bottom: 1px solid #e6e6e6; }
+    border-bottom: 1px solid #1bc0f3; }
   .accordion-title:hover, .accordion-title:focus {
-    background-color: #e6e6e6; }
+    background-color: #1bc0f3; }
   .accordion-title::before {
     content: '+';
     position: absolute;
@@ -1830,12 +1830,12 @@ select {
 .accordion-content {
   padding: 1rem;
   display: none;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #1bc0f3;
   border-bottom: 0;
   background-color: #fefefe;
   color: #0a0a0a; }
   :last-child > .accordion-content:last-child {
-    border-bottom: 1px solid #e6e6e6; }
+    border-bottom: 1px solid #1bc0f3; }
 
 .is-accordion-submenu-parent > a {
   position: relative; }
@@ -2630,7 +2630,7 @@ body {
 
 .off-canvas {
   position: absolute;
-  background: #e6e6e6;
+  background: #1bc0f3;
   z-index: -1;
   max-height: 100%;
   overflow-y: auto;
@@ -2782,7 +2782,7 @@ body {
     border-radius: 0; }
     .pagination a:hover,
     .pagination button:hover {
-      background: #e6e6e6; }
+      background: #1bc0f3; }
   .pagination .current {
     padding: 0.1875rem 0.625rem;
     background: #2199e8;
@@ -2947,7 +2947,7 @@ html.is-reveal-open body {
   height: 0.5rem;
   margin-top: 1.25rem;
   margin-bottom: 2.25rem;
-  background-color: #e6e6e6;
+  background-color: #1bc0f3;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -3210,7 +3210,7 @@ table.hover tr:nth-of-type(even):hover {
   margin: 0;
   list-style-type: none;
   background: #fefefe;
-  border: 1px solid #e6e6e6; }
+  border: 1px solid #1bc0f3; }
   .tabs::before, .tabs::after {
     content: ' ';
     display: table; }
@@ -3244,16 +3244,16 @@ table.hover tr:nth-of-type(even):hover {
     .tabs-title > a:hover {
       background: #fefefe; }
     .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
-      background: #e6e6e6; }
+      background: #1bc0f3; }
 
 .tabs-content {
   background: #fefefe;
   transition: all 0.5s ease;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #1bc0f3;
   border-top: 0; }
 
 .tabs-content.vertical {
-  border: 1px solid #e6e6e6;
+  border: 1px solid #1bc0f3;
   border-left: 0; }
 
 .tabs-panel {
@@ -3404,7 +3404,7 @@ table.hover tr:nth-of-type(even):hover {
     clear: both; }
   .top-bar,
   .top-bar ul {
-    background-color: #e6e6e6; }
+    background-color: #1bc0f3; }
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }
