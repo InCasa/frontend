@@ -4,6 +4,13 @@ function CadastroController($rootScope, $location, ApiServiceUser) {
 	var vm = this;
 	$rootScope.activetab = $location.path();
 
+	var keyPress = document.getElementById("inpSenha");
+	keyPress.addEventListener("keydown", function (e) {
+		if (e.keyCode === 13) {
+			vm.submit();
+		}
+	});
+
 	vm.submit = function () {	
 
 		if (vm.nome && vm.login && vm.senha && vm.csenha) {
