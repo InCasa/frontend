@@ -1,6 +1,6 @@
-SensorController.$inject = ['$rootScope', '$location', 'ApiServiceTemperatura', 'ApiServiceUmidade', 'ApiServiceLuminosidade', 'ApiServicePresenca', 'ApiServiceAuth'];
+SensorController.$inject = ['$scope', '$rootScope', '$location', 'ApiServiceTemperatura', 'ApiServiceUmidade', 'ApiServiceLuminosidade', 'ApiServicePresenca', 'ApiServiceAuth'];
 
-function SensorController($rootScope, $location, ApiServiceTemperatura, ApiServiceUmidade, ApiServiceLuminosidade, ApiServicePresenca, ApiServiceAuth) {
+function SensorController($scope, $rootScope, $location, ApiServiceTemperatura, ApiServiceUmidade, ApiServiceLuminosidade, ApiServicePresenca, ApiServiceAuth) {
 	var vmdash = this;
 	$rootScope.activetab = $location.path();
 
@@ -8,32 +8,36 @@ function SensorController($rootScope, $location, ApiServiceTemperatura, ApiServi
 		.then(function (auth) {
                         
 			var temperatura = ApiServiceTemperatura.getTemperatura()
-				.then(function (getTemperatura) {			
-                    //Lógica json
+				.then(function (getTemperatura) {			                    					
+					$scope.temperatura = getTemperatura.data;
 				})
 				.catch(function () {			 		
                     alert('Necessita estar logado!');
 				})
 
-			var umidade = ApiServiceTemperatura.getTemperatura()
-				.then(function (getTemperatura) {			
-                    //Lógica json
+			var umidade = ApiServiceUmidade.getUmidade()
+				.then(function (getUmidade) {			
+                    $scope.umidade = getUmidade.data;
 				})
 				.catch(function () {			 		
                     alert('Necessita estar logado!');
 				})
 
-			var luminosidade = ApiServiceTemperatura.getTemperatura()
-				.then(function (getTemperatura) {			
-                    //Lógica json
+			var luminosidade = ApiServiceLuminosidade.getLuminosidade()
+				.then(function (getLuminosidade) {			
+                    $scope.luminosidade = getLuminosidade.data;
 				})
 				.catch(function () {			 		
                     alert('Necessita estar logado!');
 				})
 
-			var presenca = ApiServiceTemperatura.getTemperatura()
-				.then(function (getTemperatura) {			
-                    //Lógica json
+			var presenca = ApiServicePresenca.getPresenca()
+				.then(function (getPresenca) {			
+					if(getPresenca.data.valor == 0) {
+						$scope.presenca = "Sem movimento";	
+					} else {
+						$scope.presenca = "Movimento";
+					}            
 				})
 				.catch(function () {			 		
                     alert('Necessita estar logado!');
