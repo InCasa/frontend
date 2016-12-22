@@ -13,12 +13,40 @@
     <link rel="stylesheet" href="../css/foundation.css" />
     <link rel="stylesheet" href="../css/app.css" />
     <link rel="stylesheet" href="../css/styles.css" />
+
+    <script type="text/javascript" src="../js/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dia', 'Temperatura', 'Umidade'],
+          ['Segunda',  25, 4],
+          ['Terça',  36, 20],
+          ['Quarta',  27, 20],
+          ['Quinta',  30, 11],
+          ['Sexta',  25, 11],
+          ['Sábado',  28, 20],
+          ['Domingo',  32, 14]
+        ]);
+
+        var options = {
+          title: 'Temperatura e Umidade',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 
 <body>
 
     <ul class="menu">
-        <li><a ng-class="{active: activetab == '/'}" href="#/dashboard">InCasa</a></li>
         <li><a ng-class="{active: activetab == '/'}" href="#/sensor">Sensor</a></li>
         <li><a ng-class="{active: activetab == '/'}" href="#/rele">Rele</a></li>
         <li><a ng-class="{active: activetab == '/'}" href="#/config">Configuração</a></li>
@@ -29,16 +57,16 @@
 
     <script src="app/app-bundle.js"></script>
 
-    <script>        
+    <script>
         function loadAuth() {
             if(localStorage.getItem("login") == null || localStorage.getItem("senha") == null) {
                 alert('Necessita estar logado!');
                 window.location.href = "https://localhost/frontend/#/login";
             }
-                
+
         }
         window.onload = loadAuth;
-             
+
         function logout() {
             localStorage.clear();
             window.location.href = "https://localhost/frontend/#/login";
