@@ -17,15 +17,10 @@
 
 <body>
 
-	<div class="top-bar">
-		<div class="top-bar-left">
-			<ul class="menu">
-				<li><a ng-class="{active: activetab == '/'}" href="#/home">InCasa</a></li>
-				<li><a ng-class="{active: activetab == '/login'}" href="#/login">Login</a></li>
-				<li><a ng-class="{active: activetab == '/cadastro'}" href="#/cadastro">Cadastro</a></li>
-			</ul>
-		</div>
-	</div>
+	<ul class="menu">
+		<li><a ui-sref="login" ui-sref-active="active">Login</a></li>
+		<li><a ui-sref="cadastro" ui-sref-active="active">Cadastro</a></li>
+	</ul>
 
 	<div ui-view></div>
 

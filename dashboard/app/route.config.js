@@ -35,7 +35,7 @@ function RouteConfig($stateProvider, $urlRouterProvider) {
 			templateUrl: 'app/views/config.html',
 			controller: require('./controllers/ConfigCtrl'),
 			controllerAs: 'vmdash'
-		})
+		});
 
 }
 
