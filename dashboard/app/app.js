@@ -7,4 +7,5 @@ angular.module('app',[require('angular-ui-router')])
 	.factory('ApiServiceUmidade', require('./services/api.service.umidade'))
 	.factory('ApiServiceLuminosidade', require('./services/api.service.luminosidade'))
 	.factory('ApiServicePresenca', require('./services/api.service.presenca'))
-    .factory('ApiServiceAuth', require('./services/api.service.auth'));
+    .factory('ApiServiceAuth', require('./services/api.service.auth'))
+	.factory('ApiServiceRele', require('./services/api.service.rele'));

@@ -34,3 +34,56 @@ label {
 button {
     font-family: 'UA Squared';
 }
+
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+input.cmn-toggle-round-flat + label {
+  padding: 2px;
+  width: 60px;
+  height: 30px;
+  background-color: #dddddd;
+  border-radius: 30px;
+  transition: background 0.2s;
+}
+input.cmn-toggle-round-flat + label:before,
+input.cmn-toggle-round-flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+input.cmn-toggle-round-flat + label:before {
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  right: 1px;
+  background-color: #fff;
+  border-radius: 30px;
+  transition: background 0.2s;
+}
+input.cmn-toggle-round-flat + label:after {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  width: 26px;
+  background-color: #dddddd;
+  border-radius: 26px;
+  transition: margin 0.2s, background 0.2s;
+}
+input.cmn-toggle-round-flat:checked + label {
+  background-color: #1bc0f3;
+}
+input.cmn-toggle-round-flat:checked + label:after {
+  margin-left: 30px;
+  background-color: #1bc0f3;
+}
