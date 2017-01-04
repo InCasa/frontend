@@ -201,3 +201,11 @@ input.visible {
   visibility: visible;  
   width: 500px;
 }
+
+.select-style select {   
+    width: 70%;
+}
+
+.select-style select:focus {
+    outline: none;
+}

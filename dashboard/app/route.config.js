@@ -35,6 +35,14 @@ function RouteConfig($stateProvider, $urlRouterProvider) {
 			templateUrl: 'app/views/config.html',
 			controller: require('./controllers/ConfigCtrl'),
 			controllerAs: 'vmdash'
+		})
+		
+		//rota log
+		.state('log', {
+			url: '/log',
+			templateUrl: 'app/views/log.html',
+			controller: require('./controllers/LogCtrl'),
+			controllerAs: 'vmdash'
 		});
 
 }
