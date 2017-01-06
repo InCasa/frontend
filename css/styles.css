@@ -110,7 +110,7 @@ h1 {
 	visibility: hidden;
 }
 
-#container label {
+#container label#tab {
 	background: #f1f1f1;
 	border-radius: .25em .25em 0 0;
 	color: black;
@@ -125,12 +125,12 @@ h1 {
 	text-align: center;
 }
 
-#container input:hover + label {
+#container input:hover + label#tab {
 	background: #ddd;  /* Fondo de las pestañas al pasar el cursor por encima */
 	color: #666;  /* Color del texto de las pestañas al pasar el cursor por encima */
 }
 
-#container input:checked + label {
+#container input:checked + label#tab {
 	background: #1bc0f3;  /* Fondo de las pestañas al presionar */
 	color: white; /* Color de las pestañas al presionar */
 	position: relative;

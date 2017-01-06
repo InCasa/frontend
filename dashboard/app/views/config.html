@@ -6,19 +6,19 @@
         <div id="container">
 
             <input id="tab-1" type="radio" name="tab-group" checked="checked" />
-            <label for="tab-1">Sensor</label>
+            <label id="tab" for="tab-1">Sensor</label>
 
             <input id="tab-2" type="radio" name="tab-group" />
-            <label for="tab-2">Relê</label>
+            <label id="tab" for="tab-2">Relê</label>
 
             <input id="tab-3" type="radio" name="tab-group" />
-            <label for="tab-3">Arduino</label>
+            <label id="tab" for="tab-3">Arduino</label>
 
             <input id="tab-4" type="radio" name="tab-group" />
-            <label for="tab-4">Aplicativo</label>
+            <label id="tab" for="tab-4">Aplicativo</label>
 
             <input id="tab-5" type="radio" name="tab-group" />
-            <label for="tab-5">Usuario</label>
+            <label id="tab" for="tab-5">Usuario</label>
 
             <div id="content">
 
@@ -72,11 +72,17 @@
                 </div>
 
                 <div id="content-5">
-                    <input type="text" placeholder="Nome">
-                    <input type="text" placeholder="Login">
-                    <input type="text" placeholder="Senha">                    
-                    <button type="button" class="success button">Salvar</button>
-                    <button type="button" class="warning button">Limpar</button>
+                    <label id="form">Nome
+                        <input id="inpNome" type="text" placeholder="Nome" maxlength="40" ng-model="vmdash.userNome">
+                    </label>
+                    <label id="form">Login
+                        <input id="inpLogin" type="text" placeholder="Login" maxlength="20" ng-model="vmdash.userLogin">
+                    </label>
+                    <label id="form">Senha                
+                        <input id="inpSenha" type="password" placeholder="Senha" maxlength="60" ng-model="vmdash.userSenha">                    
+                    </label>
+                    <button type="button" class="success button" ng-click="vmdash.submitUser()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmdash.limparUser()">Limpar</button>
                 </div>
             </div>
         </div>
