@@ -1,12 +1,44 @@
-ConfigController.$inject = ['$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceUser'];
+ConfigController.$inject = ['$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceUser', 'ApiServiceAplicativo'];
 
-function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser) {
+function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser, ApiServiceAplicativo) {
 	var vmdash = this;
 	$rootScope.activetab = $location.path();
 
 	var auth = ApiServiceAuth.auth()
 		.then(function (auth) {
 
+			//Parte responsável pela tab do aplicativo
+			carregaApp();
+
+			var keyPress = document.getElementById("inpMAC");
+			keyPress.addEventListener("keydown", function (e) {
+				if (e.keyCode === 13) {
+					vmdash.submitApp();
+				}
+			});
+
+			vmdash.submitApp = function () {
+				if (vmdash.appNome && vmdash.appMAC) {
+					var app = { nome: vmdash.appNome, mac: vmdash.appMAC };
+
+					ApiServiceAplicativo.putApp(app)
+						.then(function (putApp) {
+							alert('Dados atualizados, por favor faça login!');
+							carregaApp();
+						})
+						.catch(function () {
+							alert('Erro ao atualizar dados!');
+						})
+
+				} else {
+					alert("Preencha os campos");
+					return;
+				}
+			}
+
+			vmdash.limparApp = function () {
+				carregaApp();
+			}
 
 			//Parte responsável pela tab de user
 			carregaUser();
@@ -64,10 +96,8 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser)
 		var getID = ApiServiceUser.getID(user)
 			.then(function (getID) {
 				var id = getID.data[0].id;
-				console.log(getID);
 				var getUser = ApiServiceUser.getUser(id)
 					.then(function (getUser) {
-						console.log(getUser);
 						document.getElementById("inpNome").value = "" + getUser.data.nome;
 						document.getElementById("inpLogin").value = "" + getUser.data.login;
 					})
@@ -79,6 +109,19 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser)
 			.catch(function () {
 				alert('Erro ao atualizar dados!');
 			})
+	}
+
+	function carregaApp() {	
+
+		var getUser = ApiServiceAplicativo.getApp()
+			.then(function (getApp) {				
+				document.getElementById("inpAppNome").value = "" + getApp.data.nome;
+				document.getElementById("inpMAC").value = "" + getApp.data.mac;
+			})
+			.catch(function () {
+				alert('Erro ao atualizar dados!');
+			})
+
 	}
 
 }

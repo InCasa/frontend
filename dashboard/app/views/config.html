@@ -65,10 +65,14 @@
                 </div>
 
                 <div id="content-4">
-                    <input type="text" placeholder="Nome smartphone">
-                    <input type="text" placeholder="MAC">
-                    <button type="button" class="success button">Salvar</button>
-                    <button type="button" class="warning button">Limpar</button>
+                    <label id="form">Nome
+                        <input id="inpAppNome" type="text" placeholder="Nome smartphone" ng-model="vmdash.appNome">
+                    </label>
+                    <label id="form">MAC
+                        <input id="inpMAC" type="text" placeholder="MAC" ng-model="vmdash.appMAC">
+                    </label>
+                    <button type="button" class="success button" ng-click="vmdash.submitApp()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmdash.limparApp()">Limpar</button>
                 </div>
 
                 <div id="content-5">
