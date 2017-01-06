@@ -1,11 +1,19 @@
-LogController.$inject = ['$rootScope', '$location', 'ApiServiceAuth'];
+LogController.$inject = ['$scope', '$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceRele'];
 
-function LogController($rootScope, $location, ApiServiceAuth) {
+function LogController($scope, $rootScope, $location, ApiServiceAuth, ApiServiceRele) {
+	var vmdash = this;
 	$rootScope.activetab = $location.path();
 
 	var auth = ApiServiceAuth.auth()
 		.then(function (auth) {
 
+			var rele = ApiServiceRele.getReleValorAll()
+				.then(function (getReleValorAll) {
+					$scope.rele = getReleValorAll.data;
+				})
+				.catch(function () {
+					alert('Erro ao carregar a tabela!');
+				})
 		})
 		.catch(function () {
 			alert('Necessita estar logado!');

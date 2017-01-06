@@ -6,8 +6,22 @@
         <div class="select-style">
             <select>
                 <option value="sensor">Sensores</option>
-                <option value="rele">Relês</option>                
+                <option value="rele" selected="selected">Relês</option>                
             </select>
+
+            <table id="logRele">
+                <tr>
+                    <th>Status</th>
+                    <th>Data e Horario</th>
+                    <th>Rele</th>
+                </tr>
+                <tr ng-repeat="x in rele">
+                    <td>{{ x.valor }}</td>
+                    <td>{{ x.DataHorario }}</td>
+                    <td>{{ x.idRele }}</td>
+                </tr>
+            </table>
+
         </div>
 
     </div>
