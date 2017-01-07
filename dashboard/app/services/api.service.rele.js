@@ -37,10 +37,22 @@ function ApiServiceRele($http) {
         });
     }
 
+    function getReleND(id) {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");
+    
+        var encodedString = btoa(login + ':' + senha);
+
+        return $http.get('/backend/rele/' + id, {
+            headers: { 'Authorization': 'Basic ' + encodedString }
+        });
+    }
+
     return {
         getRele: getRele,
         postRele: postRele,
-        getReleValorAll: getReleValorAll
+        getReleValorAll: getReleValorAll,
+        getReleND: getReleND
     };
 
 }

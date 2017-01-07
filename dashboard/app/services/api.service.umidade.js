@@ -15,8 +15,20 @@ function ApiServiceUmidade($http) {
         });
     }
 
+    function getUmidadeND() {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");                
+        
+        var encodedString = btoa(login+':'+senha);
+        
+        return $http.get('/backend/umidade/1', {
+            headers: {'Authorization': 'Basic '+encodedString}
+        });
+    }
+
     return {
-        getUmidade: getUmidade    
+        getUmidade: getUmidade,
+        getUmidadeND: getUmidadeND
     };
 
 }

@@ -15,8 +15,20 @@ function ApiServiceTemperatura($http) {
         });
     }
 
+    function getTemperaturaND() {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");                
+        
+        var encodedString = btoa(login+':'+senha);
+        
+        return $http.get('/backend/temperatura/1', {
+            headers: {'Authorization': 'Basic '+encodedString}
+        });
+    }
+
     return {
-        getTemperatura: getTemperatura    
+        getTemperatura: getTemperatura,
+        getTemperaturaND: getTemperaturaND  
     };
 
 }

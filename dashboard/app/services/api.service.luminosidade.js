@@ -15,8 +15,20 @@ function ApiServiceLuminosidade($http) {
         });
     }
 
+    function getLuminosidadeND() {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");
+
+        var encodedString = btoa(login + ':' + senha);
+
+        return $http.get('/backend/luminosidade/1', {
+            headers: { 'Authorization': 'Basic ' + encodedString }
+        });
+    }
+
     return {
-        getLuminosidade: getLuminosidade
+        getLuminosidade: getLuminosidade,
+        getLuminosidadeND: getLuminosidadeND
     };
     
 }

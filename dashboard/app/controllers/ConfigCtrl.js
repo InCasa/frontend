@@ -1,13 +1,17 @@
-ConfigController.$inject = ['$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceUser', 'ApiServiceAplicativo', 'ApiServiceArduino'];
+ConfigController.$inject = ['$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceUser', 'ApiServiceAplicativo', 'ApiServiceArduino', 'ApiServiceRele', 'ApiServiceTemperatura', 'ApiServiceUmidade', 'ApiServiceLuminosidade', 'ApiServicePresenca'];
 
-function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser, ApiServiceAplicativo, ApiServiceArduino) {
+function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser, ApiServiceAplicativo, ApiServiceArduino, ApiServiceRele, ApiServiceTemperatura, ApiServiceUmidade, ApiServiceLuminosidade, ApiServicePresenca) {
 	var vmconfig = this;
 	$rootScope.activetab = $location.path();
 
-	vmconfig = this;
-
 	var auth = ApiServiceAuth.auth()
 		.then(function (auth) {
+
+			//Parte Responsavel pela tab de sensor
+			carregaSensor();
+
+			//Parte responsável pela tab rele
+			carregaRele();
 
 			//Parte responsável pela tab do arduino
 			carregaArduino();
@@ -201,6 +205,90 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 			})
 			.catch(function () {
 				alert('Erro ao atualizar dados!');
+			})
+
+	}
+
+	function carregaRele() {
+
+		ApiServiceRele.getReleND(1)
+			.then(function  (getReleND){
+				document.getElementById("inpRele1Nome").value = "" + getReleND.data.nome;
+				document.getElementById("inpRele1Descricao").value = "" + getReleND.data.descricao;
+				document.getElementById("inpRele1Porta").value = "" + getReleND.data.porta;
+			})
+			.catch(function (){
+				alert('Erro ao atualizar dados');
+			})
+
+		ApiServiceRele.getReleND(2)
+			.then(function  (getReleND){
+				document.getElementById("inpRele2Nome").value = "" + getReleND.data.nome;
+				document.getElementById("inpRele2Descricao").value = "" + getReleND.data.descricao;
+				document.getElementById("inpRele2Porta").value = "" + getReleND.data.porta;
+			})
+			.catch(function (){
+				alert('Erro ao atualizar dados');
+			})
+
+		ApiServiceRele.getReleND(3)
+			.then(function  (getReleND){
+				document.getElementById("inpRele3Nome").value = "" + getReleND.data.nome;
+				document.getElementById("inpRele3Descricao").value = "" + getReleND.data.descricao;
+				document.getElementById("inpRele3Porta").value = "" + getReleND.data.porta;
+			})
+			.catch(function (){
+				alert('Erro ao atualizar dados');
+			})
+
+		ApiServiceRele.getReleND(4)
+			.then(function  (getReleND){
+				document.getElementById("inpRele4Nome").value = "" + getReleND.data.nome;
+				document.getElementById("inpRele4Descricao").value = "" + getReleND.data.descricao;
+				document.getElementById("inpRele4Porta").value = "" + getReleND.data.porta;
+			})
+			.catch(function (){
+				alert('Erro ao atualizar dados');
+			})			
+
+	}
+
+	function carregaSensor() {
+
+		ApiServiceTemperatura.getTemperaturaND()
+			.then(function (getTemperaturaND) {
+				document.getElementById("inpSensorTempNome").value = "" + getTemperaturaND.data.nome;
+				document.getElementById("inpSensorTempDescricao").value = "" + getTemperaturaND.data.descricao;				
+			})
+			.catch(function () {
+
+			})
+
+		ApiServiceUmidade.getUmidadeND()
+			.then(function (getUmidadeND) {
+				document.getElementById("inpSensorUmiNome").value = "" + getUmidadeND.data.nome;
+				document.getElementById("inpSensorUmiDescricao").value = "" + getUmidadeND.data.descricao;				
+			})
+			.catch(function () {
+
+			})
+
+		ApiServiceLuminosidade.getLuminosidadeND()
+			.then(function (getLuminosidadeND) {
+				document.getElementById("inpSensorLumiNome").value = "" + getLuminosidadeND.data.nome;
+				document.getElementById("inpSensorLumiDescricao").value = "" + getLuminosidadeND.data.descricao;				
+			})
+			.catch(function () {
+
+			})	
+
+		ApiServicePresenca.getPresencaND()
+			.then(function (getPresencaND) {
+				document.getElementById("inpSensorPresencaNome").value = "" + getPresencaND.data.nome;
+				document.getElementById("inpSensorPresencaDescricao").value = "" + getPresencaND.data.descricao;				
+			})
+			.catch(function () {
+
 			})
 
 	}

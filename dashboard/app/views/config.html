@@ -23,28 +23,75 @@
             <div id="content">
 
                 <div id="content-1">
-                    <input type="text" placeholder="Sensor Temperatura">
-                    <input type="text" placeholder="Descrição Sensor Temperatura">
+                    <label>Nome Sensor Temperatura
+                        <input type="text" placeholder="Sensor Temperatura" id="inpSensorTempNome" ng-model="vmconfig.sensorTempNome">
+                    </label>
+                    <label>Descrição Sensor Temperatura
+                        <input type="text" placeholder="Descrição Sensor Temperatura" id="inpSensorTempDescricao" ng-model="vmconfig.sensorTempDescricao">
+                    </label>
+                    <label>Nome Sensor Umidade
+                        <input type="text" placeholder="Sensor Umidade" id="inpSensorUmiNome" ng-model="vmconfig.sensorUmiNome">
+                    </label>
+                    <label>Descrição Sensor Umidade
+                        <input type="text" placeholder="Descrição Sensor Umidade" id="inpSensorUmiDescricao" ng-model="vmconfig.sensorUmiDescricao">
+                    </label>
+                    <label>Nome Sensor Luminosidade
+                        <input type="text" placeholder="Sensor Luminosidade" id="inpSensorLumiNome" ng-model="vmconfig.sensorLumiNome">
+                    </label>
+                    <label>Descrição Sensor Luminosidade
+                        <input type="text" placeholder="Descrição Sensor Luminosidade" id="inpSensorLumiDescricao" ng-model="vmconfig.sensorLumiDescricao">
+                    </label>
+                    <label>Nome Sensor Presença
+                        <input type="text" placeholder="Sensor Presença" id="inpSensorPresencaNome" ng-model="vmconfig.sensorPresencaNome">
+                    </label>
+                    <label>Descrição Sensor Presença
+                        <input type="text" placeholder="Descrição Sensor presença" id="inpSensorPresencaDescricao" ng-model="vmconfig.sensorPresencaDescricao">
+                    </label>
 
-                    <input type="text" placeholder="Sensor Umidade">
-                    <input type="text" placeholder="Descrição Sensor Umidade">
 
-                    <input type="text" placeholder="Sensor Luminosidade">
-                    <input type="text" placeholder="Descrição Sensor Luminosidade">
-
-                    <input type="text" placeholder="Sensor Presença">
-                    <input type="text" placeholder="Descrição Sensor presença">
-
-
-                    <button type="button" class="success button">Salvar</button>
-                    <button type="button" class="warning button">Limpar</button>
+                    <button type="button" class="success button" ng-click="vmconfig.submitSensor()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmconfig.limparSensor()">Limpar</button>
                 </div>
 
                 <div id="content-2">
-                    <input type="text" placeholder="Nome">
-                    <input type="text" placeholder="Descrição">
-                    <button type="button" class="success button">Salvar</button>
-                    <button type="button" class="warning button">Limpar</button>
+                    <label>Nome Rele 1
+                        <input type="text" placeholder="Nome" id="inpRele1Nome" ng-model="vmconfig.rele1Nome">
+                    </label>
+                    <label>Descrição Rele 1                            
+                        <input type="text" placeholder="Descrição" id="inpRele1Descricao" ng-model="vmconfig.rele1Descricao">
+                    </label>
+                    <label>Porta Rele 1                            
+                        <input type="text" placeholder="Porta" id="inpRele1Porta" ng-model="vmconfig.rele1Porta">
+                    </label>
+                    <label>Nome Rele 2
+                        <input type="text" placeholder="Nome" id="inpRele2Nome" ng-model="vmconfig.rele2Nome">
+                    </label>
+                    <label>Descrição Rele 2                            
+                        <input type="text" placeholder="Descrição" id="inpRele2Descricao" ng-model="vmconfig.rele2Descricao">
+                    </label>
+                    <label>Porta Rele 2                            
+                        <input type="text" placeholder="Porta" id="inpRele2Porta" ng-model="vmconfig.rele2Porta">
+                    </label>
+                    <label>Nome Rele 3
+                        <input type="text" placeholder="Nome" id="inpRele3Nome" ng-model="vmconfig.rele3Nome">
+                    </label>
+                    <label>Descrição Rele 3                            
+                        <input type="text" placeholder="Descrição" id="inpRele3Descricao" ng-model="vmconfig.rele3Descricao">
+                    </label>
+                    <label>Porta Rele 3                            
+                        <input type="text" placeholder="Porta" id="inpRele3Porta" ng-model="vmconfig.rele3Porta">
+                    </label>
+                    <label>Nome Rele 4
+                        <input type="text" placeholder="Nome" id="inpRele4Nome" ng-model="vmconfig.rele4Nome">
+                    </label>
+                    <label>Descrição Rele 4                            
+                        <input type="text" placeholder="Descrição" id="inpRele4Descricao" ng-model="vmconfig.rele4Descricao">
+                    </label>
+                    <label>Porta Rele 4                            
+                        <input type="text" placeholder="Porta" id="inpRele4Porta" ng-model="vmconfig.rele4Porta">
+                    </label>
+                    <button type="button" class="success button" ng-click="vmconfig.submitRele()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmconfig.limparRele()">Limpar</button>
                 </div>
 
                 <div id="content-3">
