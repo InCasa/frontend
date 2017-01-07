@@ -1,7 +1,7 @@
 SensorController.$inject = ['$scope', '$rootScope', '$location', 'ApiServiceTemperatura', 'ApiServiceUmidade', 'ApiServiceLuminosidade', 'ApiServicePresenca', 'ApiServiceAuth'];
 
 function SensorController($scope, $rootScope, $location, ApiServiceTemperatura, ApiServiceUmidade, ApiServiceLuminosidade, ApiServicePresenca, ApiServiceAuth) {
-	var vmdash = this;
+	var vmsensor = this;
 	$rootScope.activetab = $location.path();
 
 	var auth = ApiServiceAuth.auth()

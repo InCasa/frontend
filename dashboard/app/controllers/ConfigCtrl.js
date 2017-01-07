@@ -1,8 +1,10 @@
 ConfigController.$inject = ['$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceUser', 'ApiServiceAplicativo', 'ApiServiceArduino'];
 
 function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser, ApiServiceAplicativo, ApiServiceArduino) {
-	var vmdash = this;
+	var vmconfig = this;
 	$rootScope.activetab = $location.path();
+
+	vmconfig = this;
 
 	var auth = ApiServiceAuth.auth()
 		.then(function (auth) {
@@ -14,34 +16,34 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 			var keyPress = document.getElementById("inpArduinoPinRele4");
 			keyPress.addEventListener("keydown", function (e) {
 				if (e.keyCode === 13) {
-					vmdash.submitArduino();
+					vmconfig.submitArduino();
 				}
 			});
 
-			vmdash.submitArduino = function () {
+			vmconfig.submitArduino = function () {
 
-				console.log(vmdash.arduinoIP);
-				console.log(vmdash.arduinoMAC);
-				console.log(vmdash.arduinoGateway);
-				console.log(vmdash.arduinoMask);
-				console.log(vmdash.arduinoPorta);
-				console.log(vmdash.arduinoPinTempUmi);
-				console.log(vmdash.arduinoPinRele1);
-				console.log(vmdash.arduinoPinRele2);
-				console.log(vmdash.arduinoPinRele3);
-				console.log(vmdash.arduinoPinRele4);
-				console.log(vmdash.arduinoPinLumi);
-				console.log(vmdash.arduinoPinPresenca);
+				console.log(vmconfig.arduinoIP);
+				console.log(vmconfig.arduinoMAC);
+				console.log(vmconfig.arduinoGateway);
+				console.log(vmconfig.arduinoMask);
+				console.log(vmconfig.arduinoPorta);
+				console.log(vmconfig.arduinoPinTempUmi);
+				console.log(vmconfig.arduinoPinRele1);
+				console.log(vmconfig.arduinoPinRele2);
+				console.log(vmconfig.arduinoPinRele3);
+				console.log(vmconfig.arduinoPinRele4);
+				console.log(vmconfig.arduinoPinLumi);
+				console.log(vmconfig.arduinoPinPresenca);
 
-				if (vmdash.arduinoIP && vmdash.arduinoMAC && vmdash.arduinoGateway && vmdash.arduinoMask
-					&& vmdash.arduinoPorta && vmdash.arduinoPinTempUmi && vmdash.arduinoPinLumi
-					&& vmdash.arduinoPinPresenca && vmdash.arduinoPinRele1 && vmdash.arduinoPinRele2
-					&& vmdash.arduinoPinRele3 && vmdash.arduinoPinRele4) {
+				if (vmconfig.arduinoIP && vmconfig.arduinoMAC && vmconfig.arduinoGateway && vmconfig.arduinoMask
+					&& vmconfig.arduinoPorta && vmconfig.arduinoPinTempUmi && vmconfig.arduinoPinLumi
+					&& vmconfig.arduinoPinPresenca && vmconfig.arduinoPinRele1 && vmconfig.arduinoPinRele2
+					&& vmconfig.arduinoPinRele3 && vmconfig.arduinoPinRele4) {
 
 					var arduino = {
-						ip: vmdash.arduinoIP, mac: vmdash.arduinoMAC, gateway: vmdash.arduinoGateway, mask: vmdash.arduinoMask,
-						porta: vmdash.arduinoPorta, PinoDHT: vmdash.arduinoPinTempUmi, PinoRele1: vmdash.arduinoPinRele1, PinoRele2: vmdash.arduinoPinRele2,
-						PinoRele3: vmdash.arduinoPinRele3, PinoRele4: vmdash.arduinoPinRele4, PinoLDR: vmdash.arduinoPinLumi, PinoPresenca: vmdash.arduinoPinPresenca
+						ip: vmconfig.arduinoIP, mac: vmconfig.arduinoMAC, gateway: vmconfig.arduinoGateway, mask: vmconfig.arduinoMask,
+						porta: vmconfig.arduinoPorta, PinoDHT: vmconfig.arduinoPinTempUmi, PinoRele1: vmconfig.arduinoPinRele1, PinoRele2: vmconfig.arduinoPinRele2,
+						PinoRele3: vmconfig.arduinoPinRele3, PinoRele4: vmconfig.arduinoPinRele4, PinoLDR: vmconfig.arduinoPinLumi, PinoPresenca: vmconfig.arduinoPinPresenca
 					};
 
 					ApiServiceArduino.putArduino(aarduino)
@@ -59,7 +61,7 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 				}
 			}
 
-			vmdash.limparArduino = function () {
+			vmconfig.limparArduino = function () {
 				carregaArduino();
 			}
 
@@ -69,13 +71,13 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 			var keyPress = document.getElementById("inpMAC");
 			keyPress.addEventListener("keydown", function (e) {
 				if (e.keyCode === 13) {
-					vmdash.submitApp();
+					vmconfig.submitApp();
 				}
 			});
 
-			vmdash.submitApp = function () {
-				if (vmdash.appNome && vmdash.appMAC) {
-					var app = { nome: vmdash.appNome, mac: vmdash.appMAC };
+			vmconfig.submitApp = function () {
+				if (vmconfig.appNome && vmconfig.appMAC) {
+					var app = { nome: vmconfig.appNome, mac: vmconfig.appMAC };
 
 					ApiServiceAplicativo.putApp(app)
 						.then(function (putApp) {
@@ -92,7 +94,7 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 				}
 			}
 
-			vmdash.limparApp = function () {
+			vmconfig.limparApp = function () {
 				carregaApp();
 			}
 
@@ -102,19 +104,19 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 			var keyPress = document.getElementById("inpSenha");
 			keyPress.addEventListener("keydown", function (e) {
 				if (e.keyCode === 13) {
-					vmdash.submitUser();
+					vmconfig.submitUser();
 				}
 			});
 
-			vmdash.submitUser = function () {
-				if (vmdash.userNome && vmdash.userLogin && vmdash.userSenha) {
-					var user = { login: vmdash.userLogin, senha: vmdash.userSenha };
+			vmconfig.submitUser = function () {
+				if (vmconfig.userNome && vmconfig.userLogin && vmconfig.userSenha) {
+					var user = { login: vmconfig.userLogin, senha: vmconfig.userSenha };
 
 					var getID = ApiServiceUser.getID(user)
 						.then(function (getID) {
 							var id = getID.data.id;
 
-							user = { nome: vmdash.userNome, login: vmdash.userLogin, senha: vmdash.userSenha };
+							user = { nome: vmconfig.userNome, login: vmconfig.userLogin, senha: vmconfig.userSenha };
 
 							var putUser = ApiServiceUser.putUser(id, user)
 								.then(function (putUser) {
@@ -136,7 +138,7 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 			}
 
-			vmdash.limparUser = function () {
+			vmconfig.limparUser = function () {
 				carregaUser();
 			}
 

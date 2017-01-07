@@ -49,68 +49,68 @@
 
                 <div id="content-3">
                     <label id="form">IP
-                        <input type="text" placeholder="IP" id="inpArduinoIP" ng-model="vmdash.arduinoIP">
+                        <input type="text" placeholder="IP" id="inpArduinoIP" ng-model="vmconfig.arduinoIP">
                     </label>
                     <label id="form">MAC
-                        <input type="text" placeholder="MAC" id="inpArduinoMAC" ng-model="vmdash.arduinoMAC">
+                        <input type="text" placeholder="MAC" id="inpArduinoMAC" ng-model="vmconfig.arduinoMAC">
                     </label>
                     <label id="form">Gateway
-                        <input type="text" placeholder="Gateway" id="inpArduinoGateway" ng-model="vmdash.arduinoGateway">
+                        <input type="text" placeholder="Gateway" id="inpArduinoGateway" ng-model="vmconfig.arduinoGateway">
                     </label>
                     <label id="form">Mask
-                        <input type="text" placeholder="Mask" id="inpArduinoMask" ng-model="vmdash.arduinoMask">
+                        <input type="text" placeholder="Mask" id="inpArduinoMask" ng-model="vmconfig.arduinoMask">
                     </label>
                     <label id="form">Porta
-                        <input type="text" placeholder="Port" id="inpArduinoPorta" ng-model="vmdash.arduinoPorta">
+                        <input type="text" placeholder="Port" id="inpArduinoPorta" ng-model="vmconfig.arduinoPorta">
                     </label>
                     <label id="form">Pino temperatura e umidade
-                        <input type="text" placeholder="Pino temperatura e umidade" id="inpArduinoPinTempUmi" ng-model="vmdash.arduinoPinTempUmi">
+                        <input type="text" placeholder="Pino temperatura e umidade" id="inpArduinoPinTempUmi" ng-model="vmconfig.arduinoPinTempUmi">
                     </label>
                     <label id="form">Pino luminosidade
-                        <input type="text" placeholder="Pino luminosidade" id="inpArduinoPinLumi" ng-model="vmdash.arduinoPinLumi">
+                        <input type="text" placeholder="Pino luminosidade" id="inpArduinoPinLumi" ng-model="vmconfig.arduinoPinLumi">
                     </label>
                     <label id="form">Pino presença
-                        <input type="text" placeholder="Pino presença" id="inpArduinoPinPresenca" ng-model="vmdash.arduinoPinPresenca">
+                        <input type="text" placeholder="Pino presença" id="inpArduinoPinPresenca" ng-model="vmconfig.arduinoPinPresenca">
                     </label>
                     <label id="form">Pino Rele 1
-                        <input type="text" placeholder="Pino Rele 1" id="inpArduinoPinRele1" ng-model="vmdash.arduinoPinRele1">
+                        <input type="text" placeholder="Pino Rele 1" id="inpArduinoPinRele1" ng-model="vmconfig.arduinoPinRele1">
                     </label>
                     <label id="form">Pino Rele 2
-                        <input type="text" placeholder="Pino Rele 2" id="inpArduinoPinRele2" ng-model="vmdash.arduinoPinRele2">
+                        <input type="text" placeholder="Pino Rele 2" id="inpArduinoPinRele2" ng-model="vmconfig.arduinoPinRele2">
                     </label>
                     <label id="form">Pino Rele 3
-                        <input type="text" placeholder="Pino Rele 3" id="inpArduinoPinRele3" ng-model="vmdash.arduinoPinRele3">
+                        <input type="text" placeholder="Pino Rele 3" id="inpArduinoPinRele3" ng-model="vmconfig.arduinoPinRele3">
                     </label>
                     <label id="form">Pino Rele 4
-                        <input type="text" placeholder="Pino Rele 4" id="inpArduinoPinRele4" ng-model="vmdash.arduinoPinRele4">
+                        <input type="text" placeholder="Pino Rele 4" id="inpArduinoPinRele4" ng-model="vmconfig.arduinoPinRele4">
                     </label>
-                    <button type="button" class="success button" ng-click="vmdash.submitArduino()">Salvar</button>
-                    <button type="button" class="warning button" ng-click="vmdash.limparArduino()">Limpar</button>
+                    <button type="button" class="success button" ng-click="vmconfig.submitArduino()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmconfig.limparArduino()">Limpar</button>
                 </div>
 
                 <div id="content-4">
                     <label id="form">Nome
-                        <input id="inpAppNome" type="text" placeholder="Nome smartphone" ng-model="vmdash.appNome">
+                        <input id="inpAppNome" type="text" placeholder="Nome smartphone" ng-model="vmconfig.appNome">
                     </label>
                     <label id="form">MAC
-                        <input id="inpMAC" type="text" placeholder="MAC" ng-model="vmdash.appMAC">
+                        <input id="inpMAC" type="text" placeholder="MAC" ng-model="vmconfig.appMAC">
                     </label>
-                    <button type="button" class="success button" ng-click="vmdash.submitApp()">Salvar</button>
-                    <button type="button" class="warning button" ng-click="vmdash.limparApp()">Limpar</button>
+                    <button type="button" class="success button" ng-click="vmconfig.submitApp()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmconfig.limparApp()">Limpar</button>
                 </div>
 
                 <div id="content-5">
                     <label id="form">Nome
-                        <input id="inpNome" type="text" placeholder="Nome" maxlength="40" ng-model="vmdash.userNome">
+                        <input id="inpNome" type="text" placeholder="Nome" maxlength="40" ng-model="vmconfig.userNome">
                     </label>
                     <label id="form">Login
-                        <input id="inpLogin" type="text" placeholder="Login" maxlength="20" ng-model="vmdash.userLogin">
+                        <input id="inpLogin" type="text" placeholder="Login" maxlength="20" ng-model="vmconfig.userLogin">
                     </label>
                     <label id="form">Senha                
-                        <input id="inpSenha" type="password" placeholder="Senha" maxlength="60" ng-model="vmdash.userSenha">                    
+                        <input id="inpSenha" type="password" placeholder="Senha" maxlength="60" ng-model="vmconfig.userSenha">                    
                     </label>
-                    <button type="button" class="success button" ng-click="vmdash.submitUser()">Salvar</button>
-                    <button type="button" class="warning button" ng-click="vmdash.limparUser()">Limpar</button>
+                    <button type="button" class="success button" ng-click="vmconfig.submitUser()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmconfig.limparUser()">Limpar</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 LogController.$inject = ['$scope', '$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceRele'];
 
 function LogController($scope, $rootScope, $location, ApiServiceAuth, ApiServiceRele) {
-	var vmdash = this;
+	var vmlog = this;
 	$rootScope.activetab = $location.path();
 
 	var auth = ApiServiceAuth.auth()

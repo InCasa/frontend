@@ -1,7 +1,7 @@
 ReleController.$inject = ['$scope', '$rootScope', '$location', 'ApiServiceAuth', 'ApiServiceRele'];
 
 function ReleController($scope, $rootScope, $location, ApiServiceAuth, ApiServiceRele) {
-	var vmdash = this;
+	var vmrele = this;
 	$rootScope.activetab = $location.path();
 
 	var auth = ApiServiceAuth.auth()
@@ -65,7 +65,7 @@ function ReleController($scope, $rootScope, $location, ApiServiceAuth, ApiServic
 				})
 
 			//Função click no checkbox, para enviar as mudanças no rele
-			vmdash.rele1 = function () {
+			vmrele.rele1 = function () {
 				if (document.getElementById("cmn-toggle-1").checked) {					
 					var rele = { valor: true, idRele: 1 };
 
@@ -90,7 +90,7 @@ function ReleController($scope, $rootScope, $location, ApiServiceAuth, ApiServic
 				}
 			}
 
-			vmdash.rele2 = function () {
+			vmrele.rele2 = function () {
 				if (document.getElementById("cmn-toggle-2").checked) {					
 					var rele = { valor: true, idRele: 2 };
 
@@ -115,7 +115,7 @@ function ReleController($scope, $rootScope, $location, ApiServiceAuth, ApiServic
 				}
 			}
 
-			vmdash.rele3 = function () {
+			vmrele.rele3 = function () {
 				if (document.getElementById("cmn-toggle-3").checked) {					
 					var rele = { valor: true, idRele: 3 };
 
@@ -140,7 +140,7 @@ function ReleController($scope, $rootScope, $location, ApiServiceAuth, ApiServic
 				}
 			}
 
-			vmdash.rele4 = function () {
+			vmrele.rele4 = function () {
 				if (document.getElementById("cmn-toggle-4").checked) {					
 					var rele = { valor: true, idRele: 4 };
 

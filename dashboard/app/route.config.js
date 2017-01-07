@@ -18,7 +18,7 @@ function RouteConfig($stateProvider, $urlRouterProvider) {
 			url: '/sensor',
 			templateUrl: 'app/views/sensor.html',
 			controller: require('./controllers/SensorCtrl'),
-			controllerAs: 'vmdash'
+			controllerAs: 'vmsensor'
 		})
 
 		//rota rele
@@ -26,7 +26,7 @@ function RouteConfig($stateProvider, $urlRouterProvider) {
 			url: '/rele',
 			templateUrl: 'app/views/rele.html',
 			controller: require('./controllers/ReleCtrl'),
-			controllerAs: 'vmdash'
+			controllerAs: 'vmrele'
 		})
 
 		//rota config
@@ -34,7 +34,7 @@ function RouteConfig($stateProvider, $urlRouterProvider) {
 			url: '/config',
 			templateUrl: 'app/views/config.html',
 			controller: require('./controllers/ConfigCtrl'),
-			controllerAs: 'vmdash'
+			controllerAs: 'vmconfig'
 		})
 		
 		//rota log
@@ -42,7 +42,7 @@ function RouteConfig($stateProvider, $urlRouterProvider) {
 			url: '/log',
 			templateUrl: 'app/views/log.html',
 			controller: require('./controllers/LogCtrl'),
-			controllerAs: 'vmdash'
+			controllerAs: 'vmlog'
 		});
 
 }
