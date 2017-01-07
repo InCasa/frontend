@@ -48,20 +48,44 @@
                 </div>
 
                 <div id="content-3">
-                    <input type="text" placeholder="IP">
-                    <input type="text" placeholder="MAC">
-                    <input type="text" placeholder="Gateway">
-                    <input type="text" placeholder="Mask">
-                    <input type="text" placeholder="Port">
-                    <input type="text" placeholder="Pino temperatura e umidade">
-                    <input type="text" placeholder="Pino luminosidade">
-                    <input type="text" placeholder="Pino presença">
-                    <input type="text" placeholder="Pino Rele 1">
-                    <input type="text" placeholder="Pino Rele 2">
-                    <input type="text" placeholder="Pino Rele 3">
-                    <input type="text" placeholder="Pino Rele 4">
-                    <button type="button" class="success button">Salvar</button>
-                    <button type="button" class="warning button">Limpar</button>
+                    <label id="form">IP
+                        <input type="text" placeholder="IP" id="inpArduinoIP" ng-model="vmdash.arduinoIP">
+                    </label>
+                    <label id="form">MAC
+                        <input type="text" placeholder="MAC" id="inpArduinoMAC" ng-model="vmdash.arduinoMAC">
+                    </label>
+                    <label id="form">Gateway
+                        <input type="text" placeholder="Gateway" id="inpArduinoGateway" ng-model="vmdash.arduinoGateway">
+                    </label>
+                    <label id="form">Mask
+                        <input type="text" placeholder="Mask" id="inpArduinoMask" ng-model="vmdash.arduinoMask">
+                    </label>
+                    <label id="form">Porta
+                        <input type="text" placeholder="Port" id="inpArduinoPorta" ng-model="vmdash.arduinoPorta">
+                    </label>
+                    <label id="form">Pino temperatura e umidade
+                        <input type="text" placeholder="Pino temperatura e umidade" id="inpArduinoPinTempUmi" ng-model="vmdash.arduinoPinTempUmi">
+                    </label>
+                    <label id="form">Pino luminosidade
+                        <input type="text" placeholder="Pino luminosidade" id="inpArduinoPinLumi" ng-model="vmdash.arduinoPinLumi">
+                    </label>
+                    <label id="form">Pino presença
+                        <input type="text" placeholder="Pino presença" id="inpArduinoPinPresenca" ng-model="vmdash.arduinoPinPresenca">
+                    </label>
+                    <label id="form">Pino Rele 1
+                        <input type="text" placeholder="Pino Rele 1" id="inpArduinoPinRele1" ng-model="vmdash.arduinoPinRele1">
+                    </label>
+                    <label id="form">Pino Rele 2
+                        <input type="text" placeholder="Pino Rele 2" id="inpArduinoPinRele2" ng-model="vmdash.arduinoPinRele2">
+                    </label>
+                    <label id="form">Pino Rele 3
+                        <input type="text" placeholder="Pino Rele 3" id="inpArduinoPinRele3" ng-model="vmdash.arduinoPinRele3">
+                    </label>
+                    <label id="form">Pino Rele 4
+                        <input type="text" placeholder="Pino Rele 4" id="inpArduinoPinRele4" ng-model="vmdash.arduinoPinRele4">
+                    </label>
+                    <button type="button" class="success button" ng-click="vmdash.submitArduino()">Salvar</button>
+                    <button type="button" class="warning button" ng-click="vmdash.limparArduino()">Limpar</button>
                 </div>
 
                 <div id="content-4">
