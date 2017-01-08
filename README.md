@@ -16,7 +16,7 @@ Página responsável pelo controle e configuração do sistema
 
 ### Requisitos:
 
-Apache
+Apache, 
 MySQL
 
 1º Download do repositório na raiz do apache
@@ -27,8 +27,8 @@ MySQL
 
 ### Requisitos:
 
-Apache
-MySQL
+Apache, 
+MySQL, 
 NodeJS
 
 1º Download do repositório na raiz do apache
