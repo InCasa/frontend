@@ -10,6 +10,72 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 			//Parte Responsavel pela tab de sensor
 			carregaSensor();
 
+			var keyPress = document.getElementById("inpSensorPresencaDescricao");
+			keyPress.addEventListener("keydown", function (e) {
+				if (e.keyCode === 13) {
+					vmconfig.submitSensor();
+				}
+			});
+
+			vmconfig.submitSensor = function () {
+
+				if (vmconfig.sensorTempNome && vmconfig.sensorTempDescricao
+					&& vmconfig.sensorUmiNome && vmconfig.sensorUmiDescricao
+					&& vmconfig.sensorLumiNome && vmconfig.sensorLumiDescricao
+					&& vmconfig.sensorPresencaNome && vmconfig.sensorPresencaDescricao) {
+
+					var temp = { nome: vmconfig.sensorTempNome, descricao: vmconfig.sensorTempDescricao };
+					var umi = { nome: vmconfig.sensorUmiNome, descricao: vmconfig.sensorUmiDescricao };
+					var lumi = { nome: vmconfig.sensorLumiNome, descricao: vmconfig.sensorLumiDescricao };
+					var presenca = { nome: vmconfig.sensorPresencaNome, descricao: vmconfig.sensorPresencaDescricao };
+
+					ApiServiceTemperatura.putTemperaturaND(temp)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do sensor de temperatura');
+						})
+
+					ApiServiceUmidade.putUmidadeND(umi)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do sensor de umidade');
+						})
+
+					ApiServiceLuminosidade.putLuminosidadeND(lumi)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do sensor de luminosidade');
+						})
+
+					ApiServicePresenca.putPresencaND(presenca)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do sensor de presença');
+						})
+
+					alert('Dados atualizados com sucesso!');
+					carregaSensor();	
+
+
+				} else {
+					alert('Preencha os campos!');
+					return;
+				}
+
+			}
+
+			vmconfig.limparSensor = function () {
+				carregaSensor();
+			}
+
 			//Parte responsável pela tab rele
 			carregaRele();
 

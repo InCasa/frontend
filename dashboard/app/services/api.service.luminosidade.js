@@ -26,9 +26,21 @@ function ApiServiceLuminosidade($http) {
         });
     }
 
+     function putLuminosidadeND(luminosidade) {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");                
+        
+        var encodedString = btoa(login+':'+senha);
+        
+        return $http.put('/backend/luminosidade/update/1', luminosidade, {
+            headers: {'Authorization': 'Basic '+encodedString}
+        });
+    }
+
     return {
         getLuminosidade: getLuminosidade,
-        getLuminosidadeND: getLuminosidadeND
+        getLuminosidadeND: getLuminosidadeND,
+        putLuminosidadeND: putLuminosidadeND
     };
     
 }

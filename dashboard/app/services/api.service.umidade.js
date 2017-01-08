@@ -26,9 +26,21 @@ function ApiServiceUmidade($http) {
         });
     }
 
+    function putUmidadeND(umidade) {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");                
+        
+        var encodedString = btoa(login+':'+senha);
+        
+        return $http.put('/backend/umidade/update/1', umidade, {
+            headers: {'Authorization': 'Basic '+encodedString}
+        });
+    }
+
     return {
         getUmidade: getUmidade,
-        getUmidadeND: getUmidadeND
+        getUmidadeND: getUmidadeND,
+        putUmidadeND: putUmidadeND
     };
 
 }

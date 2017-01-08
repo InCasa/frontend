@@ -26,9 +26,21 @@ function ApiServicePresenca($http) {
         });
     }
 
+    function putPresencaND(presenca) {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");                
+        
+        var encodedString = btoa(login+':'+senha);
+        
+        return $http.put('/backend/presenca/update/1', presenca, {
+            headers: {'Authorization': 'Basic '+encodedString}
+        });
+    }
+
     return {
         getPresenca: getPresenca,
-        getPresencaND: getPresencaND  
+        getPresencaND: getPresencaND,
+        putPresencaND: putPresencaND
     };        
     
 }
