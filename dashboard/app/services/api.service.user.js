@@ -36,7 +36,7 @@ function ApiServiceUser($http) {
         });
     }
 
-    function putUser(user) {
+    function putUser(id, user) {
         var login = localStorage.getItem("login");
         var senha = localStorage.getItem("senha");
 
@@ -47,7 +47,7 @@ function ApiServiceUser($http) {
 
         var encodedString = btoa(login + ':' + senha);
 
-        return $http.put('/backend/user/update/', user, {
+        return $http.put('/backend/user/update/' + id, user, {
             headers: { 'Authorization': 'Basic ' + encodedString }
         });
     }

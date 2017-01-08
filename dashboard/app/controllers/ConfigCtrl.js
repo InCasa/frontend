@@ -62,7 +62,7 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 						})
 
 					alert('Dados atualizados com sucesso!');
-					carregaSensor();	
+					carregaSensor();
 
 
 				} else {
@@ -231,12 +231,18 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 			});
 
 			vmconfig.submitUser = function () {
+				
+				var auxLogin = localStorage.getItem("login");
+				var auxSenha = localStorage.getItem("senha");
+
 				if (vmconfig.userNome && vmconfig.userLogin && vmconfig.userSenha) {
-					var user = { login: vmconfig.userLogin, senha: vmconfig.userSenha };
+					var user = { login: auxLogin, senha: auxSenha };
 
 					var getID = ApiServiceUser.getID(user)
 						.then(function (getID) {
-							var id = getID.data.id;
+							var id = getID.data[0].id;
+
+							console.log(id);
 
 							user = { nome: vmconfig.userNome, login: vmconfig.userLogin, senha: vmconfig.userSenha };
 
