@@ -26,19 +26,6 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 			vmconfig.submitArduino = function () {
 
-				console.log(vmconfig.arduinoIP);
-				console.log(vmconfig.arduinoMAC);
-				console.log(vmconfig.arduinoGateway);
-				console.log(vmconfig.arduinoMask);
-				console.log(vmconfig.arduinoPorta);
-				console.log(vmconfig.arduinoPinTempUmi);
-				console.log(vmconfig.arduinoPinRele1);
-				console.log(vmconfig.arduinoPinRele2);
-				console.log(vmconfig.arduinoPinRele3);
-				console.log(vmconfig.arduinoPinRele4);
-				console.log(vmconfig.arduinoPinLumi);
-				console.log(vmconfig.arduinoPinPresenca);
-
 				if (vmconfig.arduinoIP && vmconfig.arduinoMAC && vmconfig.arduinoGateway && vmconfig.arduinoMask
 					&& vmconfig.arduinoPorta && vmconfig.arduinoPinTempUmi && vmconfig.arduinoPinLumi
 					&& vmconfig.arduinoPinPresenca && vmconfig.arduinoPinRele1 && vmconfig.arduinoPinRele2
@@ -50,7 +37,7 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 						PinoRele3: vmconfig.arduinoPinRele3, PinoRele4: vmconfig.arduinoPinRele4, PinoLDR: vmconfig.arduinoPinLumi, PinoPresenca: vmconfig.arduinoPinPresenca
 					};
 
-					ApiServiceArduino.putArduino(aarduino)
+					ApiServiceArduino.putArduino(arduino)
 						.then(function (putArduino) {
 							alert('Dados atualizados, por favor faça login!');
 							carregaArduino();
@@ -160,8 +147,8 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 				var id = getID.data[0].id;
 				var getUser = ApiServiceUser.getUser(id)
 					.then(function (getUser) {
-						document.getElementById("inpNome").value = "" + getUser.data.nome;
-						document.getElementById("inpLogin").value = "" + getUser.data.login;
+						vmconfig.userNome = getUser.data.nome;
+						vmconfig.userLogin = getUser.data.login;
 					})
 					.catch(function () {
 						alert('Erro ao atualizar dados!');
@@ -177,8 +164,8 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 		ApiServiceAplicativo.getApp()
 			.then(function (getApp) {
-				document.getElementById("inpAppNome").value = "" + getApp.data.nome;
-				document.getElementById("inpMAC").value = "" + getApp.data.mac;
+				vmconfig.appNome = getApp.data.nome;
+				vmconfig.appMAC = getApp.data.mac;
 			})
 			.catch(function () {
 				alert('Erro ao atualizar dados!');
@@ -190,18 +177,18 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 		ApiServiceArduino.getArduino()
 			.then(function (getArduino) {
-				document.getElementById("inpArduinoIP").value = "" + getArduino.data.ip;
-				document.getElementById("inpArduinoMAC").value = "" + getArduino.data.mac;
-				document.getElementById("inpArduinoGateway").value = "" + getArduino.data.gateway;
-				document.getElementById("inpArduinoMask").value = "" + getArduino.data.mask;
-				document.getElementById("inpArduinoPorta").value = "" + getArduino.data.porta;
-				document.getElementById("inpArduinoPinTempUmi").value = "" + getArduino.data.PinoDHT;
-				document.getElementById("inpArduinoPinLumi").value = "" + getArduino.data.PinoLDR;
-				document.getElementById("inpArduinoPinPresenca").value = "" + getArduino.data.PinoPresenca;
-				document.getElementById("inpArduinoPinRele1").value = "" + getArduino.data.PinoRele1;
-				document.getElementById("inpArduinoPinRele2").value = "" + getArduino.data.PinoRele2;
-				document.getElementById("inpArduinoPinRele3").value = "" + getArduino.data.PinoRele3;
-				document.getElementById("inpArduinoPinRele4").value = "" + getArduino.data.PinoRele4;
+				vmconfig.arduinoIP = getArduino.data.ip;
+				vmconfig.arduinoMAC = getArduino.data.mac;
+				vmconfig.arduinoGateway = getArduino.data.gateway;
+				vmconfig.arduinoMask = getArduino.data.mask;
+				vmconfig.arduinoPorta = getArduino.data.porta;
+				vmconfig.arduinoPinTempUmi = getArduino.data.PinoDHT;
+				vmconfig.arduinoPinLumi = getArduino.data.PinoLDR;
+				vmconfig.arduinoPinPresenca = getArduino.data.PinoPresenca;
+				vmconfig.arduinoPinRele1 = getArduino.data.PinoRele1;
+				vmconfig.arduinoPinRele2 = getArduino.data.PinoRele2;
+				vmconfig.arduinoPinRele3 = getArduino.data.PinoRele3;
+				vmconfig.arduinoPinRele4 = getArduino.data.PinoRele4;
 			})
 			.catch(function () {
 				alert('Erro ao atualizar dados!');
@@ -212,44 +199,44 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 	function carregaRele() {
 
 		ApiServiceRele.getReleND(1)
-			.then(function  (getReleND){
-				document.getElementById("inpRele1Nome").value = "" + getReleND.data.nome;
-				document.getElementById("inpRele1Descricao").value = "" + getReleND.data.descricao;
-				document.getElementById("inpRele1Porta").value = "" + getReleND.data.porta;
+			.then(function (getReleND) {
+				vmconfig.rele1Nome = getReleND.data.nome;
+				vmconfig.rele1Descricao = getReleND.data.descricao;
+				vmconfig.rele1Porta = getReleND.data.porta;
 			})
-			.catch(function (){
+			.catch(function () {
 				alert('Erro ao atualizar dados');
 			})
 
 		ApiServiceRele.getReleND(2)
-			.then(function  (getReleND){
-				document.getElementById("inpRele2Nome").value = "" + getReleND.data.nome;
-				document.getElementById("inpRele2Descricao").value = "" + getReleND.data.descricao;
-				document.getElementById("inpRele2Porta").value = "" + getReleND.data.porta;
+			.then(function (getReleND) {
+				vmconfig.rele2Nome = getReleND.data.nome;
+				vmconfig.rele2Descricao = getReleND.data.descricao;
+				vmconfig.rele2Porta = getReleND.data.porta;
 			})
-			.catch(function (){
+			.catch(function () {
 				alert('Erro ao atualizar dados');
 			})
 
 		ApiServiceRele.getReleND(3)
-			.then(function  (getReleND){
-				document.getElementById("inpRele3Nome").value = "" + getReleND.data.nome;
-				document.getElementById("inpRele3Descricao").value = "" + getReleND.data.descricao;
-				document.getElementById("inpRele3Porta").value = "" + getReleND.data.porta;
+			.then(function (getReleND) {
+				vmconfig.rele3Nome = getReleND.data.nome;
+				vmconfig.rele3Descricao = getReleND.data.descricao;
+				vmconfig.rele3Porta = getReleND.data.porta;
 			})
-			.catch(function (){
+			.catch(function () {
 				alert('Erro ao atualizar dados');
 			})
 
 		ApiServiceRele.getReleND(4)
-			.then(function  (getReleND){
-				document.getElementById("inpRele4Nome").value = "" + getReleND.data.nome;
-				document.getElementById("inpRele4Descricao").value = "" + getReleND.data.descricao;
-				document.getElementById("inpRele4Porta").value = "" + getReleND.data.porta;
+			.then(function (getReleND) {
+				vmconfig.rele4Nome = getReleND.data.nome;
+				vmconfig.rele4Descricao = getReleND.data.descricao;
+				vmconfig.rele4Porta = getReleND.data.porta;
 			})
-			.catch(function (){
+			.catch(function () {
 				alert('Erro ao atualizar dados');
-			})			
+			})
 
 	}
 
@@ -257,8 +244,8 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 		ApiServiceTemperatura.getTemperaturaND()
 			.then(function (getTemperaturaND) {
-				document.getElementById("inpSensorTempNome").value = "" + getTemperaturaND.data.nome;
-				document.getElementById("inpSensorTempDescricao").value = "" + getTemperaturaND.data.descricao;				
+				vmconfig.sensorTempNome = getTemperaturaND.data.nome;
+				vmconfig.sensorTempDescricao = getTemperaturaND.data.descricao;
 			})
 			.catch(function () {
 
@@ -266,8 +253,8 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 		ApiServiceUmidade.getUmidadeND()
 			.then(function (getUmidadeND) {
-				document.getElementById("inpSensorUmiNome").value = "" + getUmidadeND.data.nome;
-				document.getElementById("inpSensorUmiDescricao").value = "" + getUmidadeND.data.descricao;				
+				vmconfig.sensorUmiNome = getUmidadeND.data.nome;
+				vmconfig.sensorUmiDescricao = getUmidadeND.data.descricao;
 			})
 			.catch(function () {
 
@@ -275,17 +262,17 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 		ApiServiceLuminosidade.getLuminosidadeND()
 			.then(function (getLuminosidadeND) {
-				document.getElementById("inpSensorLumiNome").value = "" + getLuminosidadeND.data.nome;
-				document.getElementById("inpSensorLumiDescricao").value = "" + getLuminosidadeND.data.descricao;				
+				vmconfig.sensorLumiNome = getLuminosidadeND.data.nome;
+				vmconfig.sensorLumiDescricao = getLuminosidadeND.data.descricao;
 			})
 			.catch(function () {
 
-			})	
+			})
 
 		ApiServicePresenca.getPresencaND()
 			.then(function (getPresencaND) {
-				document.getElementById("inpSensorPresencaNome").value = "" + getPresencaND.data.nome;
-				document.getElementById("inpSensorPresencaDescricao").value = "" + getPresencaND.data.descricao;				
+				vmconfig.sensorPresencaNome = getPresencaND.data.nome;
+				vmconfig.sensorPresencaDescricao = getPresencaND.data.descricao;
 			})
 			.catch(function () {
 
