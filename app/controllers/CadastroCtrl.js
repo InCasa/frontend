@@ -18,11 +18,15 @@ function CadastroController($rootScope, $location, ApiServiceUser) {
 				var user = { nome: vm.nome, login: vm.login, senha: vm.senha };
 
 				var login = ApiServiceUser.cadastro(user)
-					.then(function (cadastro) {                        
-                        window.location.href = "https://localhost/frontend/#/login";
+					.then(function (cadastro) {                                                
+						if(cadastro.data.valido == false) {
+							alert('Tente com um login diferente');
+						} else {
+							window.location.href = "https://localhost/frontend/#/login";
+						}
 					})
 					.catch(function () {
-						console.log('Erro ao buscar o user');
+						alert('Erro ao buscar o user');
 					})
 
 			} else {
