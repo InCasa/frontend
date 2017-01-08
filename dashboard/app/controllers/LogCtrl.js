@@ -7,13 +7,14 @@ function LogController($scope, $rootScope, $location, ApiServiceAuth, ApiService
 	var auth = ApiServiceAuth.auth()
 		.then(function (auth) {
 
-			var rele = ApiServiceRele.getReleValorAll()
+			ApiServiceRele.getReleValorAll()
 				.then(function (getReleValorAll) {
 					$scope.rele = getReleValorAll.data;
 				})
 				.catch(function () {
 					alert('Erro ao carregar a tabela!');
-				})
+				})		
+
 		})
 		.catch(function () {
 			alert('Necessita estar logado!');

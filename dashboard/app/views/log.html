@@ -1,14 +1,10 @@
 <!-- CONTEUDO -->
 <div class="row">
     <div class="large-8 medium-8 columns">
-        <h4><span class="title">Log</span></h4>
+        <h4><span class="title">Log dos Relês</span></h4>
 
         <div class="select-style">
-            <select>
-                <option value="sensor">Sensores</option>
-                <option value="rele" selected="selected">Relês</option>                
-            </select>
-
+           
             <table id="logRele">
                 <tr>
                     <th>Status</th>
@@ -21,6 +17,14 @@
                     <td>{{ x.idRele }}</td>
                 </tr>
             </table>
+
+            <h5>Legenda:</h5>
+
+            <ul id="legenda">
+                <li>Status</li>
+                <li>0 = desligado</li>
+                <li>1 = ligado</li>
+            </ul>
 
         </div>
 
