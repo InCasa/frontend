@@ -13,9 +13,74 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 			//Parte responsável pela tab rele
 			carregaRele();
 
+			var keyPress = document.getElementById("inpRele4Porta");
+			keyPress.addEventListener("keydown", function (e) {
+				if (e.keyCode === 13) {
+					vmconfig.submitRele();
+				}
+			});
+
+			vmconfig.submitRele = function () {
+				if (vmconfig.rele1Nome && vmconfig.rele1Descricao && vmconfig.rele1Porta
+					&& vmconfig.rele2Nome && vmconfig.rele2Descricao && vmconfig.rele2Porta
+					&& vmconfig.rele3Nome && vmconfig.rele3Descricao && vmconfig.rele3Porta
+					&& vmconfig.rele4Nome && vmconfig.rele4Descricao && vmconfig.rele4Porta) {
+
+					var rele1 = { nome: vmconfig.rele1Nome, descricao: vmconfig.rele1Descricao, porta: vmconfig.rele1Porta };
+					var rele2 = { nome: vmconfig.rele2Nome, descricao: vmconfig.rele2Descricao, porta: vmconfig.rele2Porta };
+					var rele3 = { nome: vmconfig.rele3Nome, descricao: vmconfig.rele3Descricao, porta: vmconfig.rele3Porta };
+					var rele4 = { nome: vmconfig.rele4Nome, descricao: vmconfig.rele4Descricao, porta: vmconfig.rele4Porta };
+
+					ApiServiceRele.putReleND(1, rele1)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do rele 1');
+						})
+
+					ApiServiceRele.putReleND(2, rele2)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do rele 2');
+						})
+
+					ApiServiceRele.putReleND(3, rele3)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do rele 3');
+						})
+
+					ApiServiceRele.putReleND(4, rele4)
+						.then(function () {
+
+						})
+						.catch(function () {
+							alert('Erro ao atualizar os dados do rele 4');
+						})
+
+
+					alert('Dados atualizados com sucesso');
+					carregaRele();
+
+
+				} else {
+					alert("Preencha os campos");
+					return;
+				}
+
+			}
+
+			vmconfig.limparRele = function () {
+				carregaRele();
+			}
+
 			//Parte responsável pela tab do arduino
 			carregaArduino();
-
 
 			var keyPress = document.getElementById("inpArduinoPinRele4");
 			keyPress.addEventListener("keydown", function (e) {
@@ -39,7 +104,7 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 					ApiServiceArduino.putArduino(arduino)
 						.then(function (putArduino) {
-							alert('Dados atualizados, por favor faça login!');
+							alert('Dados atualizados');
 							carregaArduino();
 						})
 						.catch(function () {
@@ -72,7 +137,7 @@ function ConfigController($rootScope, $location, ApiServiceAuth, ApiServiceUser,
 
 					ApiServiceAplicativo.putApp(app)
 						.then(function (putApp) {
-							alert('Dados atualizados, por favor faça login!');
+							alert('Dados atualizados');
 							carregaApp();
 						})
 						.catch(function () {

@@ -48,11 +48,23 @@ function ApiServiceRele($http) {
         });
     }
 
+    function putReleND(id, rele) {
+        var login = localStorage.getItem("login");
+        var senha = localStorage.getItem("senha");
+    
+        var encodedString = btoa(login + ':' + senha);
+
+        return $http.put('/backend/rele/update/' + id, rele, {
+            headers: { 'Authorization': 'Basic ' + encodedString }
+        });
+    }
+
     return {
         getRele: getRele,
         postRele: postRele,
         getReleValorAll: getReleValorAll,
-        getReleND: getReleND
+        getReleND: getReleND,
+        putReleND: putReleND
     };
 
 }

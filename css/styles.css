@@ -23,7 +23,7 @@ a {
     color: #1bc0f3;
 }
 
-h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'UA Squared';    
 }
 
@@ -208,4 +208,8 @@ input.visible {
 
 .select-style select:focus {
     outline: none;
+}
+
+#legenda {
+	list-style-type:none;
 }
