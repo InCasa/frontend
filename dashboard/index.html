@@ -12,41 +12,11 @@
     <link href="../img/ic_launcher.ico" rel="icon" />
     <link rel="stylesheet" href="../css/foundation.css" />    
     <link rel="stylesheet" href="../css/styles.css" />
-
-    <script type="text/javascript" src="../js/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Dia', 'Temperatura', 'Umidade'],
-          ['Segunda',  25, 4],
-          ['Terça',  36, 20],
-          ['Quarta',  27, 20],
-          ['Quinta',  30, 11],
-          ['Sexta',  25, 11],
-          ['Sábado',  28, 20],
-          ['Domingo',  32, 14]
-        ]);
-
-        var options = {
-          title: 'Temperatura e Umidade',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
 </head>
 
 <body>
 
-    <ul class="menu">
-        <li><a href="https://localhost/frontend/dashboard">Dashboard</a></li>
+    <ul class="menu">        
         <li><a ui-sref="sensor" ui-sref-active="active">Sensor</a></li>
         <li><a ui-sref="rele" ui-sref-active="active">Rele</a></li>
         <li><a ui-sref="config" ui-sref-active="active">Configuração</a></li>

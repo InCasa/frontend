@@ -1,17 +1,9 @@
 RouteConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RouteConfig($stateProvider, $urlRouterProvider) {
 	//Rota padrão
-	$urlRouterProvider.otherwise("/dashboard");
+	$urlRouterProvider.otherwise("/sensor");
 
 	   $stateProvider
-
-		//rota dashboard
-		.state('dashboard', {
-			url: '/dashboard',
-			templateUrl: 'app/views/dashboard.html',
-			controller: require('./controllers/DashboardCtrl'),
-			controllerAs: 'vmdash'
-		})
 
 		//rota sensor
 		.state('sensor', {
