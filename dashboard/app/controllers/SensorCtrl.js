@@ -44,7 +44,7 @@ function SensorController($scope, $rootScope, $location, ApiServiceTemperatura, 
 				})			
 
 		})
-		.catch(function () {
+		.catch(function () {			
 			alert('Necessita estar logado!');
 			window.location.href = "https://localhost/frontend/#/login";
 		})
