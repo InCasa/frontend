@@ -2,32 +2,42 @@
 <div class="row">
     <div class="large-8 medium-8 columns">
         <h4><span class="title">Log dos Relês</span></h4>
+    </div>
 
-        <div class="select-style">
-           
-            <table id="logRele">
-                <tr>
-                    <th>Status</th>
-                    <th>Data e Horario</th>
-                    <th>Rele</th>
-                </tr>
-                <tr ng-repeat="x in rele">
-                    <td>{{ x.valor }}</td>
-                    <td>{{ x.DataHorario }}</td>
-                    <td>{{ x.idRele }}</td>
-                </tr>
-            </table>
+    <div>
 
-            <h5>Legenda:</h5>
+        <table id="logRele">
+            <tr>
+                <th>Status</th>
+                <th>Data e Horario</th>
+                <th>Rele</th>
+            </tr>
+            <tr ng-repeat="items in vmlog.pageItems">
+                <td>{{ items.valor }}</td>
+                <td>{{ items.DataHorario }}</td>
+                <td>{{ items.idRele }}</td>
+            </tr>
+        </table>
 
-            <ul id="legenda">
-                <li>Status</li>
-                <li>0 = desligado</li>
-                <li>1 = ligado</li>
-            </ul>
 
-        </div>
+        <ul class="pagination">
+            <li><a ng-click="vmlog.anterior()">Anterior</a></li>
+            <li ng-repeat="page in vmlog.nbPages">
+                <span><a ng-click="vmlog.goToPage(page)">{{page}}</a></span>
+            </li>
+            <li><a ng-click="vmlog.proximo()">Proxima</a></li>
+        </ul>
+
+        <h5>Legenda:</h5>
+
+        <ul id="legenda">
+            <li>Status</li>
+            <li>0 = desligado</li>
+            <li>1 = ligado</li>
+        </ul>
 
     </div>
+
+</div>
 </div>
 <!-- FIM CONTEUDO -->
