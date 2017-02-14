@@ -11,4 +11,5 @@ angular.module('app',[require('angular-ui-router')])
 	.factory('ApiServiceRele', require('./services/api.service.rele'))
 	.factory('ApiServiceUser', require('./services/api.service.user'))
 	.factory('ApiServiceAplicativo', require('./services/api.service.aplicativo'))
-	.factory('ApiServiceArduino', require('./services/api.service.arduino'));
+	.factory('ApiServiceArduino', require('./services/api.service.arduino'))
+	.factory('ApiServiceLog', require('./services/api.service.log'));

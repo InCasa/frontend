@@ -8,11 +8,13 @@
 
         <table id="logRele">
             <tr>
+                <th>Código</th>
                 <th>Status</th>
                 <th>Data e Horario</th>
                 <th>Rele</th>
             </tr>
-            <tr ng-repeat="items in vmlog.pageItems">
+            <tr ng-repeat="items in pageItems">
+                <td>{{ items.id }}</td>
                 <td>{{ items.valor }}</td>
                 <td>{{ items.DataHorario }}</td>
                 <td>{{ items.idRele }}</td>
